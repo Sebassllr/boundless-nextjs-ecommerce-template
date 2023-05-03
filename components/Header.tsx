@@ -2,11 +2,12 @@ import {MouseEvent} from 'react';
 import Link from 'next/link';
 import HeaderCart from './cart/HeaderCart';
 import ChooseVariantModal from './header/ChooseVariantModal';
-import logoImg from '../assets/logo.svg';
+import logoImg from '../assets/logo_rosa_pq.svg';
 import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {useAppDispatch} from '../hooks/redux';
 import {setIsOpened} from '../redux/reducers/asideMenu';
+import {IconProp} from '@fortawesome/fontawesome-svg-core';
 
 export default function Header({companyTitle}: {companyTitle?: string}) {
 	const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ export default function Header({companyTitle}: {companyTitle?: string}) {
 		dispatch(setIsOpened(true));
 	};
 
-	const title = companyTitle || 'Your Company LLC.';
+	const title = companyTitle || 'Menguante rosa.';
 
 	return (
 		<header className='page-header'>
@@ -35,7 +36,7 @@ export default function Header({companyTitle}: {companyTitle?: string}) {
 										className={'btn btn-outline-secondary page-header__hamburger'}
 										onClick={onHamburgerBtnClicked}
 						>
-							<FontAwesomeIcon icon={faBars} />
+							<FontAwesomeIcon icon={faBars as IconProp} />
 						</button>
 					</div>
 				</div>
