@@ -71,6 +71,7 @@ export default function ProductPage({data: {product, categoryParents, mainMenu, 
 							<ProductImages product={product} />
 						</div>
 						<div className='col-md-5'>
+							
 							<ProductVariantAndBuy product={product} />
 							<hr className='product-page__hr' />
 							<ProductCharacteristics
@@ -78,13 +79,14 @@ export default function ProductPage({data: {product, categoryParents, mainMenu, 
 								manufacturer={product.manufacturer}
 								size={product.props.size}
 							/>
+							{product.text.description && <article itemProp='description'
+							className={'product-page__description'}
+							dangerouslySetInnerHTML={{__html: product?.text.description}} />}
 							<hr className='product-page__hr' />
 							<ProductShipping />
 						</div>
 					</div>
-					{product.text.description && <article itemProp='description'
-						className={'product-page__description'}
-						dangerouslySetInnerHTML={{__html: product?.text.description}} />}
+
 					<MetaSchemaOrg product={product} parents={resolvedParents} />
 				</div>
 				<ProductsSliderByQuery

@@ -24,6 +24,7 @@ import FiltersModal from '../../components/category/FiltersModal';
 import CategoryControls from '../../components/category/Controls';
 import {RootState} from '../../redux/store';
 import {IBasicSettings} from '../../@types/settings';
+import { iteratorSymbol } from 'immer/dist/internal';
 const FilterForm = dynamic(() => import('../../components/FilterForm'), {ssr: false});
 
 export default function CategoryPage({data}: InferGetServerSidePropsType<typeof getServerSideProps>) {

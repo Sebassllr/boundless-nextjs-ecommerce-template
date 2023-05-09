@@ -10,29 +10,16 @@ import bgPortraitImg from '../assets/cover-bg-portrait.jpg';
 import ProductsSliderByQuery from '../components/ProductsSliderByQuery';
 
 export default function IndexPage({products, mainMenu, footerMenu}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-	console.log(products);
 	return (
 		<MainLayout mainMenu={mainMenu} footerMenu={footerMenu}>
 			<div className='container'>
-				{/*<MainPageSlider />*/}
 				<div className='container'>
 				<h2 className='page-heading page-heading_h1  page-heading_m-h1'>Our products:</h2>
 				<ProductsSliderByQuery
 					query={{collection: ['main-page'], sort: 'in_collection'}}
 					wrapperClassName='page-block'
 				/>
-			</div>{/*
-
-				<div className='row'>
-					<nav className='col-lg-3 d-none d-lg-block'>
-						{mainMenu && <VerticalMenu menuList={mainMenu} />}
-					</nav>
-			A		<div className='col-lg-9 col-md-12'>
-						<h1 className='page-heading page-heading_h1  page-heading_m-h1'>Menguante rosa</h1>
-						<ProductsList products={products} query={{}}/>
-					</div>
 				</div>
-	*/}
 			</div>
 			<CoverTextInCenter
 				showChevronDown
@@ -40,8 +27,8 @@ export default function IndexPage({products, mainMenu, footerMenu}: InferGetServ
 				imgPortrait={bgPortraitImg.src}
 				content={{
 					intro: 'Who we are:',
-					head: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit leo orci, sit amet condimentum felis faucibus non. Nulla facilisi',
-					subHead: ''
+					head:  '',
+					subHead: 'Waning Rose boutique: We are a Colombian E-commerce whose main purpose is to provide women in Colombia and South America with exclusive and accessible beauty products. We promote love, self-acceptance and self-worth. We try to meet the needs of both beauty and care and well-being of the target audience. Offering everything from personal care products to clothing and complementary accessories. It should be noted that we faithfully believe in the Colombian industry, therefore in our company only articles produced in Colombia are offered.'
 				}}
 				shadow={{
 					opacity: 0.5,
@@ -59,7 +46,7 @@ export const getServerSideProps: GetServerSideProps<IIndexPageProps> = async () 
 	const {products} = await apiClient.catalog.getProducts({collection: ['main-page'], sort: 'in_collection'});
 
 	const menus = makeAllMenus({categoryTree});
-
+	
 	return {
 		props: {
 			products,

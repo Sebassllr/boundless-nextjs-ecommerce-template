@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import {CSSTransition} from 'react-transition-group';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCaretDown} from '@fortawesome/free-solid-svg-icons/faCaretDown';
-import {IMenuItem} from '../@types/components';
+import { CSSTransition } from 'react-transition-group';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import { IMenuItem } from '../@types/components';
 
 export default class HorizontalMenu extends React.Component<HorizontalMenuProps, HorizontalMenuState> {
 	protected hideTimeout: number | null = null;
@@ -40,8 +40,8 @@ export default class HorizontalMenu extends React.Component<HorizontalMenuProps,
 	}
 
 	render(): React.ReactNode {
-		const {menuList} = this.props;
-		const {visiblePopup} = this.state;
+		const { menuList } = this.props;
+		const { visiblePopup } = this.state;
 
 		return (
 			<nav className='horizontal-menu'>
@@ -77,7 +77,7 @@ export default class HorizontalMenu extends React.Component<HorizontalMenuProps,
 												className={clsx('horizontal-menu__child-list list-unstyled')}
 											>
 												{item.children.map((childItem, j) =>
-													<li key={childItem.title + j} className={clsx('horizontal-menu__child-element', {active: childItem.isActive})}>
+													<li key={childItem.title + j} className={clsx('horizontal-menu__child-element', { active: childItem.isActive })}>
 														<ListElement item={childItem} />
 													</li>)}
 											</ul>
@@ -100,7 +100,7 @@ interface HorizontalMenuState {
 	visiblePopup: number | null;
 }
 
-function ListElement({item, position, hasChildren}: {item: IMenuItem, position?: number, hasChildren?: boolean}) {
+function ListElement({ item, position, hasChildren }: { item: IMenuItem, position?: number, hasChildren?: boolean }) {
 	const image = item.img || null;
 	const isRootElem = position !== undefined;
 
@@ -126,10 +126,10 @@ function ListElement({item, position, hasChildren}: {item: IMenuItem, position?:
 				<a className={clsx(
 					'horizontal-menu__element is-link',
 					isRootElem ? 'is-root' : 'is-child',
-					{active: item.isActive}
+					{ active: item.isActive }
 				)}>
 					{image && <span className='img-link'>{imageElem}</span>}
-					<span className='title' {...(isRootElem ? {itemProp: 'name'} : {})}>
+					<span className='title' {...(isRootElem ? { itemProp: 'name' } : {})}>
 						{isRootElem ? titleWithIcon : item.title}
 					</span>
 				</a>
@@ -142,7 +142,7 @@ function ListElement({item, position, hasChildren}: {item: IMenuItem, position?:
 		<div className={clsx(
 			'horizontal-menu__element',
 			isRootElem ? 'is-root' : 'is-child',
-			{active: item.isActive}
+			{ active: item.isActive }
 		)}>
 			{image && imageElem}
 			<span className='horizontal-menu__text-title'>

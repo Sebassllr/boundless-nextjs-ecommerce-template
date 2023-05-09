@@ -3,6 +3,25 @@ import Link from 'next/link';
 import {IMenuItem} from '../../@types/components';
 
 export default function FooterMenu({menuList}: {menuList: IMenuItem[]}) {
+	let newItem = {
+		"title": "Legal",
+		"isActive": true,
+		"url": "/category/legal"
+	};
+	
+	let itemExists = false;
+	
+	for (let i = 0; i < menuList.length; i++) {
+	if (menuList[i].title === newItem.title && menuList[i].url === newItem.url) {
+		itemExists = true;
+		break;
+	}
+	}
+	  
+	if (!itemExists) {
+		menuList.push(newItem);
+	}
+	  
 	return (
 		<>
 			<h3 className='page-footer__header'>Most popular</h3>

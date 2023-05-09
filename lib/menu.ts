@@ -28,7 +28,6 @@ export const makeMenuByCategoryTree = ({categoryTree, isActiveClb}: {categoryTre
 		return item;
 	});
 
-
 	return menu;
 };
 
