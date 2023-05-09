@@ -25,7 +25,7 @@ export default function SocialButtons() {
 					</a>
 				</div>
 				<div className='page-footer__social-button'>
-					<a className='page-footer__social-link' target='_blank' href='davidjoseperez79@gmail.com '>
+					<a className='page-footer__social-link' target='_blank' href='mailto:davidjoseperez79@gmail.com '>
 						<FontAwesomeIcon className='social-icon' icon={faDiscord} />
 					</a>
 				</div>
