@@ -74,7 +74,7 @@ export default function ProductPage({data: {product, categoryParents, mainMenu, 
 							
 							<ProductVariantAndBuy product={product} />
 							<hr className='product-page__hr' />
-							<ProductCharacteristics
+							<ProductCharacteristics	
 								characteristics={product.nonVariantCharacteristics!}
 								manufacturer={product.manufacturer}
 								size={product.props.size}
